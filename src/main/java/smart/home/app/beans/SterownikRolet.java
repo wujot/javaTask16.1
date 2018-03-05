@@ -7,27 +7,20 @@ import org.springframework.stereotype.Component;
 public class SterownikRolet {
 
 
-    private MessageProducer producer;
+    private StacjaPogodowa stacjaPogodowa;
 
     SterownikRolet() {}
 
     @Autowired
-    public SterownikRolet(MessageProducer producer) {
-        this.producer = producer;
+    public SterownikRolet(StacjaPogodowa stacjaPogodowa) {
+        this.stacjaPogodowa = stacjaPogodowa;
     }
 
-    public MessageProducer getProducer() {
-        return producer;
-    }
-
-    public void setProducer(MessageProducer producer) {
-        this.producer = producer;
-    }
 
     public void print() {
         String howIs;
         String willDo;
-        if (producer.isSunny() == true) {
+        if (stacjaPogodowa.isSunny() == true) {
             howIs = "slonecznie";
             willDo = "Zaslaniam rolety";
         }else {

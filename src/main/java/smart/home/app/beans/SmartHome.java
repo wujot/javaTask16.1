@@ -7,23 +7,23 @@ import org.springframework.stereotype.Component;
 public class SmartHome {
 
 
-    private MessageProducer producer;
+    private SterownikGlosnika sterownikGlosnika;
+    private SterownikPieca sterownikPieca;
+    private SterownikRolet sterownikRolet;
 
     @Autowired
-    public SmartHome(MessageProducer producer) {
-        this.producer = producer;
+    public SmartHome(SterownikGlosnika sterownikGlosnika, SterownikPieca sterownikPieca, SterownikRolet sterownikRolet) {
+        this.sterownikGlosnika = sterownikGlosnika;
+        this.sterownikPieca = sterownikPieca;
+        this.sterownikRolet = sterownikRolet;
     }
 
-    public MessageProducer getProducer() {
-        return producer;
-    }
-
-    public void setProducer(MessageProducer producer) {
-        this.producer = producer;
-    }
+    // print all
 
     public void print() {
-        System.out.println(producer.getMessage());
+        sterownikGlosnika.print();
+        sterownikPieca.print();
+        sterownikRolet.print();
     }
 
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.Random;
 
 @Component
-public class StacjaPogodowa implements MessageProducer{
+public class StacjaPogodowa {
     private String message;
     private boolean isSunny;
     private int temperature;
@@ -20,17 +20,10 @@ public class StacjaPogodowa implements MessageProducer{
         message = "Stacja pogodowa pobiera informacje o temperaturze";
     }
 
-    @Override
-    public String getMessage() {
-        return message;
-    }
-
-    @Override
     public int getTemperature() {
         return temperature;
     }
 
-    @Override
     public boolean isSunny() {
         return isSunny;
     }

@@ -7,27 +7,19 @@ import org.springframework.stereotype.Component;
 public class SterownikGlosnika{
 
 
-    private MessageProducer producer;
+    private  StacjaPogodowa stacjaPogodowa;
 
     SterownikGlosnika() {}
 
     @Autowired
-    public SterownikGlosnika(MessageProducer producer) {
-        this.producer = producer;
-    }
-
-    public MessageProducer getProducer() {
-        return producer;
-    }
-
-    public void setProducer(MessageProducer producer) {
-        this.producer = producer;
+    public SterownikGlosnika(StacjaPogodowa stacjaPogodowa) {
+        this.stacjaPogodowa = stacjaPogodowa;
     }
 
     public void print() {
         String isSunny = null;
-        int temp = producer.getTemperature();
-        if (producer.isSunny() == true) {
+        int temp = stacjaPogodowa.getTemperature();
+        if (stacjaPogodowa.isSunny() == true) {
             isSunny = "sloneczniee";
         } else {
             isSunny = "pochmurno";

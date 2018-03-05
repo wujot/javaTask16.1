@@ -7,28 +7,20 @@ import org.springframework.stereotype.Component;
 public class SterownikPieca {
 
 
-    private MessageProducer producer;
+    private StacjaPogodowa stacjaPogodowa;
 
     SterownikPieca() {}
 
     @Autowired
-    public SterownikPieca(MessageProducer producer) {
-        this.producer = producer;
-    }
-
-    public MessageProducer getProducer() {
-        return producer;
-    }
-
-    public void setProducer(MessageProducer producer) {
-        this.producer = producer;
+    public SterownikPieca(StacjaPogodowa stacjaPogodowa) {
+        this.stacjaPogodowa = stacjaPogodowa;
     }
 
     public void print() {
         String howIs = null;
         String heaterStatus = null;
 
-        if (producer.getTemperature() < 15) {
+        if (stacjaPogodowa.getTemperature() < 15) {
             howIs = "zimno";
             heaterStatus = "Uruchamiam piec";
         }else {
